@@ -1,0 +1,76 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>bird_trading</RootNamespace>
+    <UserSecretsId>9a7353e2-b5a8-49b9-b9e2-d1e33b51b5e5</UserSecretsId>
+    <DockerComposeProjectPath>../docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <Compile Remove="Core\Repositories\**" />
+    <Content Remove="Core\Repositories\**" />
+    <EmbeddedResource Remove="Core\Repositories\**" />
+    <None Remove="Core\Repositories\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.S3" Version="3.7.103.27" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.3" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.27.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="System.Data.SqlClient" />
+    <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
+    <None Remove="Api\" />
+    <None Remove="Core\" />
+    <None Remove="Data\" />
+    <None Remove="Infrastructure\" />
+    <None Remove="Api\Controllers\" />
+    <None Remove="Core\Models\" />
+    <None Remove="Core\Repositories\" />
+    <None Remove="Core\Services\" />
+    <None Remove="Data\Contexts\" />
+    <None Remove="Infrastructure\Extensions\" />
+    <None Remove="Infrastructure\Extensions\Authorize\" />
+    <None Remove="Infrastructure\Extensions\Security\" />
+    <None Remove="Data\Migrations\" />
+    <None Remove="BCrypt.Net-Next" />
+    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <None Remove="System.IdentityModel.Tokens.Jwt" />
+    <None Remove="Api\Entities\" />
+    <None Remove="Core\Services\Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Api\" />
+    <Folder Include="Core\" />
+    <Folder Include="Data\" />
+    <Folder Include="Api\Controllers\" />
+    <Folder Include="Core\Models\" />
+    <Folder Include="Core\Services\" />
+    <Folder Include="Data\Contexts\" />
+    <Folder Include="Infrastructure\Extensions\" />
+    <Folder Include="Infrastructure\Extensions\Authorize\" />
+    <Folder Include="Infrastructure\Extensions\Security\" />
+    <Folder Include="Data\Migrations\" />
+    <Folder Include="Api\Entities\" />
+    <Folder Include="Core\Services\Interfaces\" />
+  </ItemGroup>
+</Project>

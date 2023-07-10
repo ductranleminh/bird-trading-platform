@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  bird-trading:
+    image: ${DOCKER_REGISTRY-}birdtrading
+    build:
+      context: .
+      dockerfile: bird-trading/Dockerfile
